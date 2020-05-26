@@ -20,9 +20,22 @@ namespace lab13
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public IPanelFiller PanelFiller { get; private set; }
+
+
+        private MainWindow()
         {
             InitializeComponent();
+        }
+
+        public MainWindow(IPanelFiller panelFiller) : this()
+        {
+            PanelFiller = panelFiller;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            PanelFiller.Fill(Panel);
         }
     }
 }
